@@ -2,6 +2,7 @@ import { test, expect } from "@playwright/test";
 
 const emails = ["name@email.com", "nameemail.com", "name@@email.com"];
 
+// See https://playwright.dev/docs/test-parameterize
 for (const email of emails) {
   test(`testing with ${email}`, async ({ page }) => {
     //1. (ARRANGE) Go to Restful Booker main page
