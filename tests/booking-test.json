@@ -1,0 +1,28 @@
+{
+    "data": [
+      {
+        "email": "test@example.com",
+        "valid": true
+      },
+      {
+        "email": "user123@gmail.com",
+        "valid": true
+      },
+      {
+        "email": "john.doe@example",
+        "valid": false
+      },
+      {
+        "email": "invalid_email.com",
+        "valid": false
+      },
+      {
+        "email": "user@domain..com",
+        "valid": false
+      },
+      {
+        "email": "name.lastname@company.co.uk",
+        "valid": true
+      }
+    ]
+  }
