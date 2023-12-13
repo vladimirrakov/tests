@@ -1,6 +1,8 @@
 import { test, expect } from "@playwright/test";
 
-const emails = ["name@email.com", "nameemail.com", "name@@email.com"];
+const emails = [  "name@email.com", "nameemail.com", "name@@email.com"];
+
+
 
 // See https://playwright.dev/docs/test-parameterize
 for (const email of emails) {

@@ -1,5 +1,10 @@
 import { test, expect } from '@playwright/test';
 
+/*
+Use the same object to enter all my equivalence class test data values to be tested.
+Each EC will take a line in the object. The first element in an 
+*/
+
 const MOCK_DATA = [
   { "Firstname": "Ermin", "Lastname": "Schruyers", "Email": "eschruyers0@privacy.gov.au", "Phone": "787-902-8661" },
   { "Firstname": "Hank", "Lastname": "Rayne", "Email": "hrayne1@howstuffworks.com", "Phone": "374-142-8024" },
@@ -14,7 +19,7 @@ const MOCK_DATA = [
 ];
 
 for (const user of MOCK_DATA) {
-  test(`testing with ${user.Firstname} ${user.Lastname} ${user.Email} ${user.Phone} `, async ({ page }) => {
+  test(`testing with ${user}`, async ({ page }) => {
     await page.goto('https://booker.govza.com/');
 
     await page.getByRole('button', { name: 'Let me hack!' }).click();
@@ -30,7 +35,7 @@ for (const user of MOCK_DATA) {
     await page.getByRole('button', { name: 'Book' }).click();
 
     // Checking the form that there all fields are filled out
-    // If the test data has invalid values, there will be a test error shown in VSC
+    // If the test data has invalid values, there will be NO test error shown in VSC
     await expect(page.locator('#root')).toContainText('must not be null');
   });
 }
