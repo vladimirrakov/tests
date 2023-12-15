@@ -5,6 +5,7 @@ test.beforeEach(async ({ page }, testInfo) => {
 });
 
 test.afterEach(async ({ page }, testInfo) => {
+
   await page.goto("https://booker.govza.com/#/admin/room/1");
   await page.getByTestId("username").click();
   await page.getByTestId("username").fill("admin");
@@ -12,20 +13,27 @@ test.afterEach(async ({ page }, testInfo) => {
   await page.getByTestId("password").fill("password");
   await page.getByTestId("password").press("Enter");
   await page.getByTestId("submit").click();
+
+
   await page.locator("span:nth-child(2)").first().click();
 });
 
+
 test("test", async ({ page }) => {
+  var Firstname =  page.getByPlaceholder("Firstname");
+  var Lastname =  page.getByPlaceholder("Lastname");
+  var email = page.locator('input[name="email"]');
+
   await page.getByRole("button", { name: "Let me hack!" }).click();
   await page.getByRole("button", { name: "Book this room" }).click();
   await page.getByText("CancelBook").click();
-  await page.getByPlaceholder("Firstname").click();
-  await page.getByPlaceholder("Firstname").fill("john");
-  await page.getByPlaceholder("Firstname").press("Tab");
-  await page.getByPlaceholder("Lastname").fill("doe");
-  await page.getByPlaceholder("Lastname").press("Tab");
-  await page.locator('input[name="email"]').fill("foo@bar.com");
-  await page.locator('input[name="email"]').press("Tab");
+  await Firstname.click();
+  await Firstname.fill("john");
+  await Firstname.press("Tab");
+  await Lastname.fill("doe");
+  await Lastname.press("Tab");
+  await email.fill("foo@bar.com");
+  await email.press("Tab");
   await page.locator('input[name="phone"]').fill("2343453453345345");
   await page.locator('input[name="phone"]').press("Tab");
   await page.getByRole("button", { name: "Next" }).click();
