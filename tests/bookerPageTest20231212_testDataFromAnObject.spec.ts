@@ -15,11 +15,11 @@ const MOCK_DATA = [
   { "Firstname": "Amara", "Lastname": "Woodnutt", "Email": "awoodnutt6@liveinternet.ru", "Phone": "855-315-1287" },
   { "Firstname": "Arline", "Lastname": "Plastow", "Email": "aplastow7@e-recht24.de", "Phone": "937-446-3244" },
   { "Firstname": "Shelba", "Lastname": "Linacre", "Email": "slinacre8@eepurl.com", "Phone": "559-409-6903" },
-  { "Firstname": "Katya", "Lastname": "Elsegood", "Email": "kelsegood9hp.com", "Phone": "706-357-6844" }
+  { "Firstname": "Katya", "Lastname": "Elsegood", "Email": "kelse@good9hp.com", "Phone": "706-357-6844" }
 ];
 
-for (const user of MOCK_DATA) {
-  test(`testing with ${user}`, async ({ page }) => {
+for (const [index, user] of MOCK_DATA.entries()) {
+  test(`testing with ${index + 1}`, async ({ page }) => {
     await page.goto('https://booker.govza.com/');
 
     await page.getByRole('button', { name: 'Let me hack!' }).click();
